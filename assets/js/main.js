@@ -9,6 +9,7 @@
   const headerToggleBtn = document.querySelector('.header-toggle');
 
   function headerToggle() {
+    // Synchronizes the mobile drawer state with the icon state.
     document.querySelector('#header').classList.toggle('header-show');
     headerToggleBtn.classList.toggle('bi-list');
     headerToggleBtn.classList.toggle('bi-x');
@@ -55,6 +56,7 @@
   let scrollTop = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
+    // Keeps the UI clean by revealing the button only after meaningful scroll.
     if (scrollTop) {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
@@ -74,6 +76,7 @@
    * Animation on scroll function and init
    */
   function aosInit() {
+    // Centralized AOS setup so all sections share consistent motion behavior.
     AOS.init({
       duration: 600,
       easing: 'ease-in-out',
@@ -165,6 +168,7 @@
    * Init swiper sliders
    */
   function initSwiper() {
+    // Reads per-slider JSON config from DOM to avoid hardcoded JS variants.
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
@@ -204,6 +208,7 @@
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
+    // Highlights the section currently visible to improve navigation clarity.
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
       let section = document.querySelector(navmenulink.hash);
